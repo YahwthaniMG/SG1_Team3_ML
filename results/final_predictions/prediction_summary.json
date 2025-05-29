@@ -1,0 +1,18 @@
+{
+  "model_used": "SVM",
+  "model_params": {
+    "C": 1,
+    "gamma": "auto",
+    "kernel": "rbf"
+  },
+  "model_training_accuracy": 0.8435754189944135,
+  "predictions_generated": 100,
+  "predicted_survivors": 35,
+  "predicted_deaths": 65,
+  "survival_rate_predicted": 0.35,
+  "average_probability": 0.3911337280900171,
+  "high_confidence_predictions": 2,
+  "low_confidence_predictions": 7,
+  "validation_accuracy": 0.87,
+  "generation_timestamp": "2025-05-29T15:36:21.981975"
+}
