@@ -11,7 +11,7 @@
 
 ## 🎯 Fase 1: Setup e Inicialización del Proyecto
 
-### ✅ **26 Mayo 2025 - Configuración Inicial**
+### ✅ **28 Mayo 2025 - Configuración Inicial**
 
 **Tareas Completadas:**
 - [x] Creación de estructura de proyecto profesional
@@ -41,7 +41,7 @@ Desarrollo: jupyter, black, flake8
 
 ## 🔍 Fase 2: Análisis Exploratorio de Datos (EDA)
 
-### ✅ **26 Mayo 2025 - EDA Completo**
+### ✅ **28 Mayo 2025 - EDA Completo**
 
 **Dataset Características:**
 - **Fuente**: Kaggle Titanic Dataset
@@ -114,32 +114,71 @@ correlation matrix    # Relaciones numéricas
 
 ---
 
-## 🔄 Fase 3: Data Cleaning & Preprocessing (En Progreso)
+## 🔄 Fase 3: Data Cleaning & Preprocessing (Completado)
 
-### 🚧 **Próximos Challenges Identificados:**
+### ✅ **29 Mayo 2025 - Data Cleaning Exitoso**
 
-#### **Challenge Anticipado 1: Imputación de Age**
-**Opciones consideradas**:
-1. Media/Mediana simple
-2. Imputación por clase y género
-3. Modelo predictivo (KNN, Random Forest)
-4. Múltiple imputation
+**Estrategias Implementadas:**
+- **Age (19.9% faltantes)**: Imputación por mediana agrupada (Sex + Pclass)
+- **Cabin (77.1% faltantes)**: Convertida a variable binaria `Cabin_Known`
+- **Embarked (0.2% faltantes)**: Imputación con moda (Southampton)
+- **Outliers**: Analizados y mantenidos (históricamente válidos)
 
-**Criterio de decisión**: Balance entre precisión y simplicidad
+**Decisiones Tomadas:**
+- Eliminación de PassengerId, Name, Ticket (no predictivos)
+- Mantener outliers de Fare (suites de lujo legítimas)
+- Mantener outliers de Age (bebés/ancianos realistas en 1912)
 
-#### **Challenge Anticipado 2: Feature Engineering**
-**Variables a crear**:
-- `FamilySize` = SibSp + Parch + 1
-- `IsAlone` = FamilySize == 1
-- `Title` extraído de Name (Mr, Mrs, Miss, Master, etc.)
-- `AgeGroup` = categorías de edad
-- `FareBin` = categorías de tarifa
+---
 
-#### **Challenge Anticipado 3: Encoding Categórico**
-**Decisiones pendientes**:
-- One-hot encoding vs Label encoding
-- Manejo de variables ordinales (Pclass)
-- Estrategia para variables de alta cardinalidad
+## 🔧 Fase 4: Feature Engineering (Completado)
+
+### ✅ **29 Mayo 2025 - Feature Engineering Exitoso**
+
+**Nuevas Variables Creadas:**
+
+#### 📊 **Variables Derivadas Exitosas:**
+1. **FamilySize**: Familias 2-4 personas → 55-72% supervivencia
+2. **IsAlone**: Acompañados (50.6%) vs Solos (30.4%) supervivencia
+3. **AgeGroup**: Niños (57.4%) > Adultos jóvenes (33.7%) > Seniors (26.9%)
+4. **FareBin**: Premium (58.1%) > High (45.5%) > Medium (30.4%) > Low (19.7%)
+5. **Title**: Mrs (79.4%) > Miss (70.1%) > Master (57.5%) > Mr (15.7%)
+
+#### 🔗 **Variables de Interacción Poderosas:**
+- **Sex_Pclass**: female_Class1 (96.8%) vs male_Class3 (13.5%)
+- **Age_Sex**: Adult_Female (75.3%) > Young (54.0%) > Adult_Male (16.6%)
+
+**Encoding Estratégico:**
+- **Label**: Variables binarias (Sex, Embarked)
+- **Ordinal**: Variables ordenadas (AgeGroup, FareBin)  
+- **One-Hot**: Variables nominales (Title, interacciones)
+
+**Resultado Final:**
+- De 9 variables originales → **29 features**
+- **Top 3 predictores**: AgeSex_Adult_Female (0.486), SexPclass_female_Class1 (0.413), Title_Mrs (0.342)
+
+#### 🚧 **Challenges Encontrados:**
+
+#### **Challenge 4: Balance de Features**
+**Problema**: Riesgo de overfitting con 29 features en dataset de 891 registros  
+**Solución Implementada**: 
+- Correlación analysis para identificar features más importantes
+- Encoding estratégico (no dummy trap)
+- Preparación para feature selection en modelado
+
+#### **Challenge 5: Interpretabilidad vs Performance**
+**Problema**: Variables de interacción mejoran predicción pero complican interpretación  
+**Aprendizaje**: 
+- Mantener variables originales para interpretación
+- Variables de interacción para performance
+- Documentar claramente cada feature
+
+#### **Challenge 6: Scaling de Variables Mixtas**
+**Problema**: Mezcla de variables continuas, ordinales y dummies  
+**Solución**: 
+- StandardScaler solo en variables numéricas
+- Mantener dummies en escala 0-1 original
+- Verificación estadística del scaling
 
 ---
 
@@ -149,12 +188,12 @@ correlation matrix    # Relaciones numéricas
 |------|------------|-----------------|-------------|---------|
 | Setup | 100% | 2h | 1.5h | ✅ |
 | EDA | 100% | 6h | 4h | ✅ |
-| Cleaning | 0% | 4h | - | 🚧 |
-| Feature Eng. | 0% | 3h | - | ⏳ |
-| Modeling | 0% | 6h | - | ⏳ |
+| Cleaning | 100% | 4h | 3h | ✅ |
+| Feature Eng. | 100% | 3h | 2.5h | ✅ |
+| Modeling | 0% | 6h | - | 🚧 |
 | Evaluation | 0% | 3h | - | ⏳ |
 
-**Total Progreso**: 35% completado
+**Total Progreso**: 70% completado
 
 ---
 
@@ -180,22 +219,25 @@ correlation matrix    # Relaciones numéricas
 ## 🔮 Próximos Pasos
 
 ### **Inmediatos (Esta Semana):**
-- [ ] Implementar estrategia de imputación para Age
-- [ ] Feature engineering básico
-- [ ] Data cleaning pipeline completo
-- [ ] Notebook 02_data_cleaning.ipynb
+- [x] Implementar estrategia de imputación para Age
+- [x] Feature engineering básico
+- [x] Data cleaning pipeline completo
+- [x] Notebook 02_data_cleaning.ipynb
+- [x] Notebook 03_feature_engineering.ipynb
+- [ ] Implementar algoritmos de Machine Learning
+- [ ] Notebook 04_modeling.ipynb
 
 ### **Siguientes (Próxima Semana):**
-- [ ] Selección de algoritmos ML
-- [ ] Implementación de modelos base
+- [ ] Comparación de modelos y tunning
 - [ ] Cross-validation strategy
 - [ ] Métricas de evaluación
+- [ ] Interpretación de feature importance
 
 ### **Finales:**
-- [ ] Model comparison y tunning
-- [ ] Interpretación de resultados
+- [ ] Error analysis y model improvement
 - [ ] Storytelling final
 - [ ] Documentación completa
+- [ ] Reporte técnico final
 
 ---
 
@@ -216,5 +258,5 @@ correlation matrix    # Relaciones numéricas
 
 ---
 
-*Log actualizado: 26 Mayo 2025, 18:30*  
-*Próxima actualización: 28 Mayo 2025*
+*Log actualizado: 28 Mayo 2025, 18:30*  
+*Próxima actualización: 29 Mayo 2025*

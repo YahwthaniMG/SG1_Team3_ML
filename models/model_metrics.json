@@ -1,0 +1,83 @@
+{
+  "best_model": "SVM",
+  "best_params": {
+    "C": 1,
+    "gamma": "auto",
+    "kernel": "rbf"
+  },
+  "base_models_comparison": {
+    "Logistic Regression": {
+      "train_accuracy": 0.8443017656500803,
+      "val_accuracy": 0.8426966292134831,
+      "val_precision": 0.8333333333333334,
+      "val_recall": 0.7352941176470589,
+      "val_f1": 0.78125,
+      "val_auc": 0.9098930481283423
+    },
+    "Random Forest": {
+      "train_accuracy": 0.9919743178170144,
+      "val_accuracy": 0.8314606741573034,
+      "val_precision": 0.7714285714285715,
+      "val_recall": 0.7941176470588235,
+      "val_f1": 0.782608695652174,
+      "val_auc": 0.8786096256684491
+    },
+    "SVM": {
+      "train_accuracy": 0.8475120385232745,
+      "val_accuracy": 0.8539325842696629,
+      "val_precision": 0.8888888888888888,
+      "val_recall": 0.7058823529411765,
+      "val_f1": 0.7868852459016393,
+      "val_auc": 0.8831550802139035
+    },
+    "Naive Bayes": {
+      "train_accuracy": 0.8041733547351525,
+      "val_accuracy": 0.8202247191011236,
+      "val_precision": 0.8,
+      "val_recall": 0.7058823529411765,
+      "val_f1": 0.75,
+      "val_auc": 0.8762032085561497
+    }
+  },
+  "cv_results": {
+    "Logistic Regression": {
+      "accuracy_mean": 0.8244459765586525,
+      "accuracy_std": 0.028101820913869247,
+      "f1_mean": 0.7588391608391609,
+      "f1_std": 0.03920776643414892,
+      "auc_mean": 0.8788066928427428,
+      "auc_std": 0.021050829900459943
+    },
+    "Random Forest": {
+      "accuracy_mean": 0.8202698709740964,
+      "accuracy_std": 0.022473573116102936,
+      "f1_mean": 0.7614810166811578,
+      "f1_std": 0.0272482450068511,
+      "auc_mean": 0.8701500770505473,
+      "auc_std": 0.026710091302462807
+    },
+    "SVM": {
+      "accuracy_mean": 0.8258347286516301,
+      "accuracy_std": 0.024186445505445162,
+      "f1_mean": 0.7515945965272571,
+      "f1_std": 0.03643156814758513,
+      "auc_mean": 0.8564315569487985,
+      "auc_std": 0.031408381255865134
+    },
+    "Naive Bayes": {
+      "accuracy_mean": 0.7864966019895597,
+      "accuracy_std": 0.026315707940196487,
+      "f1_mean": 0.676676521532509,
+      "f1_std": 0.059502553917955045,
+      "auc_mean": 0.865198233642591,
+      "auc_std": 0.023377813076927486
+    }
+  },
+  "final_test_metrics": {
+    "accuracy": 0.8435754189944135,
+    "precision": 0.847457627118644,
+    "recall": 0.7246376811594203,
+    "f1": 0.78125,
+    "auc": 0.8586297760210804
+  }
+}
