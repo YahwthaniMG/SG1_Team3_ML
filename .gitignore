@@ -75,8 +75,3 @@ venv.bak/
 Thumbs.db
 ehthumbs.db
 Desktop.ini
-
-# Archivos específicos del proyecto
-models/*.pkl
-data/raw/*.csv
-results/logs/*.log
