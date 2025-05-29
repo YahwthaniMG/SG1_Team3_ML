@@ -1,5 +1,5 @@
 """
-Utilidades y funciones helper para el proyecto Titanic
+Utilities and helper functions for the Titanic project.
 """
 
 import matplotlib.pyplot as plt
@@ -11,25 +11,25 @@ def save_plot(
     fig, filename, save_dir="../results/figures/", formats=["png", "svg"], dpi=300
 ):
     """
-    Guarda automáticamente un gráfico en múltiples formatos
+    Automatically saves a graphic in multiple formats
 
     Parameters:
     -----------
     fig : matplotlib.figure.Figure
-        La figura a guardar
+        The figure to keep
     filename : str
-        Nombre del archivo (sin extensión)
+        File name (without extension)
     save_dir : str
-        Directorio donde guardar
+        Directory where to save
     formats : list
-        Formatos de archivo ['png', 'svg', 'pdf']
+        File formats ['png', 'svg', 'pdf']
     dpi : int
-        Resolución para imágenes raster
+        Resolution for raster images
     """
-    # Crear directorio si no existe
+    # Create directory if it does not exist
     os.makedirs(save_dir, exist_ok=True)
 
-    # Timestamp para versioning
+    # Timestamp for versioning
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
     saved_files = []
@@ -45,14 +45,14 @@ def save_plot(
             edgecolor="none",
         )
         saved_files.append(filepath)
-        print(f"✅ Gráfico guardado: {filepath}")
+        print(f"✅ Graph saved: {filepath}")
 
     return saved_files
 
 
 def save_current_plot(filename, save_dir="../results/figures/", formats=["png"]):
     """
-    Guarda el gráfico actual de matplotlib
+    Saves the current matplotlib plot
     """
     fig = plt.gcf()
     return save_plot(fig, filename, save_dir, formats)
