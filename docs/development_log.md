@@ -220,14 +220,55 @@ correlation matrix    # Relaciones numéricas
 - Mantener Logistic Regression para interpretación
 - Feature importance no disponible en SVM (como esperado)
 
-**Métricas Comparativas Finales:**
+---
 
-| Modelo | Accuracy | F1-Score | AUC-ROC | Overfitting |
-|--------|----------|----------|---------|-------------|
-| **SVM** | **84.4%** | **0.781** | **0.859** | ✅ No |
-| Logistic Regression | 84.3% | 0.781 | **0.910** | ✅ No |
-| Random Forest | 83.2% | 0.783 | 0.879 | ⚠️ Sí |
-| Naive Bayes | 82.0% | 0.750 | 0.876 | ✅ No |
+## 📊 Fase 6: Model Evaluation & Interpretation (Completado)
+
+### ✅ **29 Mayo 2025 - Evaluación y Análisis Profundo Completado**
+
+**Análisis de Performance Final:**
+- **SVM Optimizado**: 84.4% accuracy en test (objetivo >80% ✅)
+- **Balance Métricas**: F1=0.78, Precision=0.85, Recall=0.72, AUC=0.86
+- **Sin Overfitting**: Performance consistente entre train/val/test
+- **Robustez Confirmada**: Cross-validation estable
+
+**Error Analysis Revelador:**
+- **16.2% Error Total**: 52 falsos positivos + 92 falsos negativos
+- **Falsos Positivos**: Principalmente mujeres de 3ª clase (predicción optimista)
+- **Falsos Negativos**: Mayormente hombres que sobrevivieron inesperadamente
+- **Insights Humanos**: Errores reflejan casos excepcionales de la tragedia
+
+**Validación de Hipótesis Históricas:**
+- **✅ H1**: Mujeres 3.9x más supervivencia que hombres (74% vs 19%)
+- **✅ H2**: 1ª clase (63%) > 2ª (47%) > 3ª (24%) supervivencia
+- **✅ H4**: Mujeres 1ª clase 97% vs Hombres 3ª clase 14%
+- **✅ Features Top**: AgeSex_Adult_Female, SexPclass_female_Class1, Title_Mrs
+
+**Contexto Histórico Validado:**
+- **Protocolo Birkenhead**: "Mujeres y niños primero" claramente capturado
+- **Clase Social**: Determinó acceso a botes salvavidas
+- **Capacidad Limitada**: Solo 53% capacidad de botes explicó tragedia
+
+#### 🚧 **Challenge 10: Interpretación de Casos de Error**
+**Problema**: ¿Cómo explicar por qué el modelo se equivocó en casos específicos?
+**Análisis Realizado**: 
+- Falsos positivos: Mujeres jóvenes 3ª clase con alta probabilidad asignada
+- Falsos negativos: Hombres que sobrevivieron contra pronóstico
+- **Insight Histórico**: Errores reflejan la naturaleza caótica y humana del desastre
+
+#### 🚧 **Challenge 11: Balance Interpretabilidad vs Accuracy**
+**Problema**: SVM no ofrece feature importance directa como Random Forest
+**Solución Adoptada**: 
+- Usar feature importance del análisis de correlación previo
+- Validar con conocimiento histórico del dominio
+- Priorizar performance final sobre interpretabilidad inmediata
+
+#### 🚧 **Challenge 12: Bias en Subgrupos Demográficos**
+**Problema**: Performance desigual entre géneros y clases
+**Hallazgo**: 
+- Modelo excelente prediciendo supervivencia femenina (Recall=97%)
+- Conservador prediciendo supervivencia masculina (Precision=100%, Recall=21%)
+- **Reflexión Ética**: Refleja sesgos históricos reales, no del modelo
 
 ---
 
@@ -240,9 +281,9 @@ correlation matrix    # Relaciones numéricas
 | Cleaning | 100% | 4h | 3h | ✅ |
 | Feature Eng. | 100% | 3h | 2.5h | ✅ |
 | Modeling | 100% | 6h | 4h | ✅ |
-| Evaluation | 0% | 3h | - | 🚧 |
+| Evaluation | 100% | 3h | 2h | ✅ |
 
-**Total Progreso**: 85% completado
+**Total Progreso**: 100% completado
 
 ---
 
@@ -307,5 +348,4 @@ correlation matrix    # Relaciones numéricas
 
 ---
 
-*Log actualizado: 28 Mayo 2025, 18:30*  
-*Próxima actualización: 30 Mayo 2025*
+*Log actualizado: 29 Mayo 2025, 18:30*  
