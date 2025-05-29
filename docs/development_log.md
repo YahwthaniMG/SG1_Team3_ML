@@ -173,12 +173,61 @@ correlation matrix    # Relaciones numéricas
 - Variables de interacción para performance
 - Documentar claramente cada feature
 
-#### **Challenge 6: Scaling de Variables Mixtas**
-**Problema**: Mezcla de variables continuas, ordinales y dummies  
+---
+
+## 🤖 Fase 5: Machine Learning Modeling (Completado)
+
+### ✅ **29 Mayo 2025 - Modelado Exitoso**
+
+**Algoritmos Implementados:**
+- **Logistic Regression**: Baseline interpretable (84.3% accuracy, AUC=0.91)
+- **Random Forest**: Ensemble robusto (83.2% accuracy, overfitting detectado)
+- **Support Vector Machine**: Boundaries complejas (**GANADOR**: 84.4% accuracy)
+- **Naive Bayes**: Baseline probabilístico (82.0% accuracy)
+
+**Mejor Modelo Final:**
+- **Algoritmo**: SVM con kernel RBF
+- **Hiperparámetros**: C=1, gamma='auto'
+- **Performance Test**: 84.4% accuracy, F1=0.78, AUC=0.86
+- **✅ OBJETIVO ALCANZADO**: >80% accuracy
+
+**Proceso de Validación:**
+- **Data Split**: 70% train, 10% validation, 20% test
+- **Cross-Validation**: 5-fold estratificado para robustez
+- **Grid Search**: Optimización de hiperparámetros
+- **Test Final**: Evaluación en conjunto no visto
+
+#### 🚧 **Challenges Encontrados:**
+
+#### **Challenge 7: Overfitting en Random Forest**
+**Problema**: Random Forest mostró 99.2% accuracy en train vs 83.2% en validation
 **Solución**: 
-- StandardScaler solo en variables numéricas
-- Mantener dummies en escala 0-1 original
-- Verificación estadística del scaling
+- Identificado mediante comparación train-val
+- SVM demostró mejor generalización
+- Documentado para análisis futuro
+
+#### **Challenge 8: Selección de Métrica Óptima**
+**Problema**: Balance entre accuracy, precision y recall para contexto histórico
+**Decisión**: 
+- F1-Score como métrica principal (balance precision-recall)
+- AUC-ROC para capacidad discriminativa
+- Accuracy para cumplir objetivo académico (>80%)
+
+#### **Challenge 9: Interpretabilidad vs Performance**
+**Problema**: SVM (ganador) menos interpretable que Logistic Regression
+**Aprendizaje**: 
+- Priorizar performance para objetivo académico
+- Mantener Logistic Regression para interpretación
+- Feature importance no disponible en SVM (como esperado)
+
+**Métricas Comparativas Finales:**
+
+| Modelo | Accuracy | F1-Score | AUC-ROC | Overfitting |
+|--------|----------|----------|---------|-------------|
+| **SVM** | **84.4%** | **0.781** | **0.859** | ✅ No |
+| Logistic Regression | 84.3% | 0.781 | **0.910** | ✅ No |
+| Random Forest | 83.2% | 0.783 | 0.879 | ⚠️ Sí |
+| Naive Bayes | 82.0% | 0.750 | 0.876 | ✅ No |
 
 ---
 
@@ -190,10 +239,10 @@ correlation matrix    # Relaciones numéricas
 | EDA | 100% | 6h | 4h | ✅ |
 | Cleaning | 100% | 4h | 3h | ✅ |
 | Feature Eng. | 100% | 3h | 2.5h | ✅ |
-| Modeling | 0% | 6h | - | 🚧 |
-| Evaluation | 0% | 3h | - | ⏳ |
+| Modeling | 100% | 6h | 4h | ✅ |
+| Evaluation | 0% | 3h | - | 🚧 |
 
-**Total Progreso**: 70% completado
+**Total Progreso**: 85% completado
 
 ---
 
@@ -259,4 +308,4 @@ correlation matrix    # Relaciones numéricas
 ---
 
 *Log actualizado: 28 Mayo 2025, 18:30*  
-*Próxima actualización: 29 Mayo 2025*
+*Próxima actualización: 30 Mayo 2025*
