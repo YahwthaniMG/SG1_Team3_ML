@@ -1,121 +1,121 @@
-# 📊 Diccionario de Datos - Dataset Titanic
+# 📊 Data Dictionary - Dataset Titanic
 
-## 📋 Información General
+## 📋 General Information
 
-- **Fuente**: [Kaggle - Titanic Dataset](https://www.kaggle.com/datasets/yasserh/titanic-dataset)
-- **Dimensiones**: 891 filas × 12 columnas
-- **Tipo de problema**: Clasificación binaria (Supervivencia)
-- **Variable objetivo**: `Survived`
+- **Source**: [Kaggle - Titanic Dataset](https://www.kaggle.com/datasets/yasserh/titanic-dataset)
+- **Dimensions**: 891 rows × 12 columns
+- **Problem type**: Binary classification (Survival)
+- **Target variable**: `Survived`.
 
-## 📝 Descripción de Variables
+## 📝 Description of Variables
 
-| Variable | Tipo | Descripción | Valores Posibles | Valores Faltantes |
+| Variable | Type | Description | Possible Values | Missing Values |
 |----------|------|-------------|------------------|-------------------|
-| **PassengerId** | int64 | Identificador único del pasajero | 1-891 | 0 (0.0%) |
-| **Survived** | int64 | **Variable objetivo** - Supervivencia del pasajero | 0 = Falleció<br>1 = Sobrevivió | 0 (0.0%) |
-| **Pclass** | int64 | Clase del boleto | 1 = Primera clase<br>2 = Segunda clase<br>3 = Tercera clase | 0 (0.0%) |
-| **Name** | object | Nombre completo del pasajero | Texto libre | 0 (0.0%) |
-| **Sex** | object | Género del pasajero | 'male' = Masculino<br>'female' = Femenino | 0 (0.0%) |
-| **Age** | float64 | Edad del pasajero en años | 0.42 - 80.0 años | 177 (19.9%) |
-| **SibSp** | int64 | Número de hermanos/cónyuges a bordo | 0-8 | 0 (0.0%) |
-| **Parch** | int64 | Número de padres/hijos a bordo | 0-6 | 0 (0.0%) |
-| **Ticket** | object | Número del boleto | Alfanumérico | 0 (0.0%) |
-| **Fare** | float64 | Tarifa pagada por el boleto | $0.00 - $512.33 | 0 (0.0%) |
-| **Cabin** | object | Número de cabina | Alfanumérico (ej: C85) | 687 (77.1%) |
-| **Embarked** | object | Puerto de embarque | C = Cherbourg<br>Q = Queenstown<br>S = Southampton | 2 (0.2%) |
+| **PassengerId** | int64 | Unique passenger identifier | 1-891 | 0 (0.0%) |
+| **Survived** | int64 | **Target variable** - Survival of passenger | 0 = Died<br>1 = Survived | 0 (0.0%) |
+| **Pclass** | int64 | Ticket class 1 = First class<br>2 = Second class<br>3 = Third class<br>4 = Third class<br>5 = First class<br>5 = Second class<br>5 = Third class<br>6 = Third class 0 (0.0%) |
+| **Name** | object | Passenger's full name | Free text | 0 (0.0%) |
+| **Sex** | object | Passenger's gender: 'male' = Male<br>'female' = Female | 0 (0.0%) |
+| **Age** | float64 | Passenger age in years | 0.42 - 80.0 years | 177 (19.9%) |
+| **SibSp** | int64 | Number of siblings/spouses on board | 0-8 | 0 (0.0%) |
+| **Parch** | int64 | Number of parents/children on board | 0-6 | 0 (0.0%) |
+| **Ticket** | object | Ticket number | Alphanumeric | 0 (0.0%) |
+| **Fare** | float64 | Fare paid for the ticket | $0.00 - $512.33 | 0 (0.0%) |
+| **Cabin** | object | Booth number | Alphanumeric (ej: C85) | 687 (77.1%) |
+| **Embarked** | object | Port of embarkation | C = Cherbourg<br>Q = Queenstown<br>S = Southampton | 2 (0.2%) |
 
-## 📈 Estadísticas Descriptivas
+## 📈 Descriptive Statistics
 
-### Variables Numéricas
+### Numerical Variables
 
-| Estadística | PassengerId | Survived | Pclass | Age | SibSp | Parch | Fare |
+| Statistics | PassengerId | Survived | Pclass | Age | SibSp | Parch | Fare |
 |-------------|-------------|----------|--------|-----|-------|-------|------|
-| **Media** | 446.0 | 0.384 | 2.31 | 29.7 | 0.52 | 0.38 | 32.20 |
-| **Mediana** | 446.0 | 0.0 | 3.0 | 28.0 | 0.0 | 0.0 | 14.45 |
-| **Moda** | - | 0 | 3 | 24.0 | 0 | 0 | 8.05 |
-| **Desv. Estándar** | 257.4 | 0.487 | 0.84 | 14.5 | 1.10 | 0.81 | 49.69 |
-| **Mínimo** | 1.0 | 0.0 | 1.0 | 0.42 | 0.0 | 0.0 | 0.00 |
-| **Máximo** | 891.0 | 1.0 | 3.0 | 80.0 | 8.0 | 6.0 | 512.33 |
+| **Mean** | 446.0 | 0.384 | 2.31 | 29.7 | 0.52 | 0.38 | 32.20 |
+| **Median** | 446.0 | 0.0 | 3.0 | 28.0 | 0.0 | 0.0 | 14.45 |
+| **Mode** | - | 0 | 3 | 24.0 | 0 | 0 | 8.05 |
+| **Standard Deviation** | 257.4 | 0.487 | 0.84 | 14.5 | 1.10 | 0.81 | 49.69 |
+| **Minimum** | 1.0 | 0.0 | 1.0 | 0.42 | 0.0 | 0.0 | 0.00 |
+| **Maximun** | 891.0 | 1.0 | 3.0 | 80.0 | 8.0 | 6.0 | 512.33 |
 
-### Variables Categóricas
+### Categorical Variables
 
-| Variable | Valores Únicos | Valor Más Frecuente | Frecuencia |
+| Variable | Unique Values | Most Frequent Value | Frequency |
 |----------|----------------|---------------------|------------|
 | **Sex** | 2 | 'male' | 577 (64.8%) |
 | **Embarked** | 3 | 'S' | 644 (72.4%) |
 | **Pclass** | 3 | 3 | 491 (55.1%) |
 
-## 🎯 Variable Objetivo: Survived
+## 🎯 Target Variable: Survived
 
-- **Distribución**:
-  - Fallecidos (0): 549 pasajeros (61.6%)
-  - Supervivientes (1): 342 pasajeros (38.4%)
-- **Tasa de supervivencia general**: 38.4%
+- **Distribution**:
+  - Fatalities (0): 549 passengers (61.6%).
+  - Survivors (1): 342 passengers (38.4%)
+- Overall Survival Rate**: 38.4%.
 
-## 🔍 Patrones Identificados
+## 🔍 Identified Patterns
 
-### 👫 Por Género
-- **Mujeres**: 74.2% de supervivencia (233/314)
-- **Hombres**: 18.9% de supervivencia (109/577)
-- **Diferencia**: Las mujeres tuvieron ~4x más probabilidad de sobrevivir
+### 👫 By Gender
+- **Women**: 74.2% survival (233/314)
+- **Men**: 18.9% survival (109/577)
+- **Difference**: Females were ~4x more likely to survive.
 
-### 🎫 Por Clase
-- **Primera clase**: 63.0% de supervivencia (136/216)
-- **Segunda clase**: 47.3% de supervivencia (87/184)
-- **Tercera clase**: 24.2% de supervivencia (119/491)
-- **Patrón**: Supervivencia inversamente proporcional a la clase
+### 🎫 By Class
+- **First class**: 63.0% survival rate (136/216)
+- **Second class**: 47.3% survival rate (87/184)
+- **Third class**: 24.2% survival (119/491)
+- **Pattern**: Survival inversely proportional to the class
 
-### ⚓ Por Puerto de Embarque
-- **Cherbourg (C)**: 55.4% de supervivencia (93/168)
-- **Queenstown (Q)**: 39.0% de supervivencia (30/77)
-- **Southampton (S)**: 33.7% de supervivencia (217/644)
+### ⚓ By Port of Embarkation
+- **Cherbourg (C)**: 55.4% survival rate (93/168)
+- **Queenstown (Q)**: 39.0% survivability (30/77)
+- **Southampton (S)**: 33.7% survival (217/644)
 
-### 👨‍👩‍👧‍👦 Análisis Combinado (Género + Clase)
-| Género | Clase | Tasa de Supervivencia |
+### 👨‍👩‍👧‍👦 Combined Analysis (Gender + Class)
+| Gender | Class | Survival Rate |
 |--------|-------|----------------------|
-| Mujer | 1ª | 96.8% |
-| Mujer | 2ª | 92.1% |
-| Mujer | 3ª | 50.0% |
-| Hombre | 1ª | 36.9% |
-| Hombre | 2ª | 15.7% |
-| Hombre | 3ª | 13.5% |
+| Women | 1 | 96.8% |
+| Women | 2 | 92.1% |
+| Women | 3 | 50.0% |
+| Men | 1 | 36.9% |
+| Men | 2 | 15.7% |
+| Men | 3 | 13.5% |
 
-## 🔗 Correlaciones con Supervivencia
+## 🔗 Correlations with Survival
 
-| Variable | Correlación | Interpretación |
+| Variable | Correlation | Interpretation |
 |----------|-------------|----------------|
-| **Fare** | +0.257 | Tarifa más alta → Mayor supervivencia |
-| **Parch** | +0.082 | Más familiares (padres/hijos) → Ligera mejora |
-| **Age** | -0.077 | Mayor edad → Ligera disminución |
-| **SibSp** | -0.035 | Más hermanos/cónyuges → Ligera disminución |
-| **Pclass** | -0.338 | Clase más alta (número menor) → Mayor supervivencia |
+| **Fare** | +0.257 | Higher rate → Higher survival |
+| **Parch** | +0.082 | More family members (parents/children) → Slight improvement. |
+| **Age** | -0.077 | Older age → Slight decrease |
+| **SibSp** | -0.035 | More siblings/spouses → Slight decrease. |
+| **Pclass** | -0.338 | Higher class (lower number) → Greater survival |
 
-## ❌ Calidad de Datos
+## ❌ Data Quality
 
-### Valores Faltantes por Prioridad de Atención
+### Missing Values by Priority of Care
 
-1. **Cabin (77.1% faltantes)**: 
-   - Posible eliminación de la variable
-   - O creación de variable binaria "Cabin_Known"
+1. **Cabin (77.1% missing)**: 
+   - Possible deletion of variable
+   - Or creation of binary variable "Cabin_Known".
 
-2. **Age (19.9% faltantes)**:
-   - Requiere imputación (media, mediana, o modelo predictivo)
-   - Variable importante para análisis
+2. **Age (19.9% missing)**:
+   - Requires imputation (mean, median, or predictive model).
+   - Important variable for analysis
 
-3. **Embarked (0.2% faltantes)**:
-   - Fácil de imputar (moda = 'S')
-   - Mínimo impacto
+3. **Embarked (0.2% missing)**:
+   - Easy to impute (mode = 'S')
+   - Minimal impact
 
-## 🚀 Recomendaciones para Procesamiento
+## 🚀 Processing Recommendations
 
-1. **Eliminar**: PassengerId, Name, Ticket (no predictivos)
-2. **Imputar**: Age (con estrategia apropiada)
-3. **Codificar**: Variables categóricas (Sex, Embarked)
+1. **Remove**: PassengerId, Name, Ticket (not predictive)
+2. **Impute**: Age (with appropriate strategy)
+3. **Code**: Categorical variables (Sex, Embarked)
 4. **Feature Engineering**: 
-   - Tamaño de familia (SibSp + Parch)
-   - Categorías de edad
-   - Títulos extraídos del nombre
-5. **Outliers**: Revisar valores extremos en Fare y Age
+   - Family size (SibSp + Parch)
+   - Age categories
+   - Titles extracted from the name
+5. **Outliers**: Review extreme values in Fare and Age
 
 ---
-*Última actualización: 26 Mayo 2025*
+*Last update: May 26, 2025.

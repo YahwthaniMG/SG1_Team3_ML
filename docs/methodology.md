@@ -1,76 +1,76 @@
-# 🔬 Metodología del Proyecto - Titanic Survival Prediction
+# 🔬 Project Methodology - Titanic Survival Prediction
 
-## 📋 Marco Metodológico
+## 📋 Methodological Framework
 
-**Proceso Base**: CRISP-DM (Cross-Industry Standard Process for Data Mining)  
-**Enfoque**: Análisis exploratorio → Modelado comparativo → Storytelling interpretativo  
-**Paradigma**: Supervised Learning - Clasificación binaria  
+**Base Process**: CRISP-DM (Cross-Industry Standard Process for Data Mining)  
+**Approach**: Exploratory analysis → Comparative modeling → Interpretive storytelling  
+**Paradigm**: Supervised Learning - Binary classification  
 
 ---
 
 ## 🎯 1. Business Understanding
 
-### **Definición del Problema**
-- **Tipo**: Clasificación binaria (Sobrevivió: Sí/No)
-- **Contexto**: Análisis histórico con implicaciones sociológicas
-- **Métricas objetivo**: Accuracy >80%, Interpretabilidad alta
-- **Stakeholders**: Académicos, historiadores, estudiantes de ML
+### **Problem Definition**
+- **Type**: Binary classification (Survived: Yes/No)
+- **Context**: Historical analysis with sociological implications
+- **Target metrics**: Accuracy >80%, High interpretability
+- **Stakeholders**: Academics, historians, ML students
 
 ### **Success Criteria**
-1. **Técnico**: Modelo con performance superior a baseline random (50%)
-2. **Académico**: Cumplir 100% requerimientos ML-Practical.pdf
-3. **Interpretativo**: Generar insights validables históricamente
-4. **Educativo**: Demonstrar dominio de algoritmos del curso
+1. **Technical**: Model performance better than random baseline (50%)
+2. **Academic**: Meet 100% of ML-Practical.pdf requirements
+3. **Interpretive**: Generate historically validatable insights
+4. **Educational**: Demonstrate mastery of course algorithms
 
 ---
 
 ## 📊 2. Data Understanding
 
-### **Estrategia de Análisis Exploratorio**
+### **Exploratory Analysis Strategy**
 
-#### **2.1 Análisis Univariado**
+#### **2.1 Univariate Analysis**
 ```python
-# Para cada variable:
-# - Distribución (histogramas, boxplots)
-# - Estadísticas descriptivas (media, mediana, moda)
-# - Valores faltantes (cantidad, patrón)
-# - Outliers (detección visual y estadística)
+# For each variable:
+# - Distribution (histograms, boxplots)
+# - Descriptive statistics (mean, median, mode)
+# - Missing values (quantity, pattern)
+# - Outliers (visual and statistical detection)
 ```
 
-#### **2.2 Análisis Bivariado**
+#### **2.2 Bivariate Analysis**
 ```python
-# Variable objetivo vs predictores:
-# - Tablas de contingencia (categóricas)
-# - Correlaciones (numéricas)
-# - Visualizaciones comparativas
-# - Tests estadísticos de significancia
+# Target variable vs predictors:
+# - Contingency tables (categorical)
+# - Correlations (numeric)
+# - Comparative visualizations
+# - Statistical significance tests
 ```
 
-#### **2.3 Análisis Multivariado**
+#### **2.3 Multivariate Analysis**
 ```python
-# Interacciones entre variables:
-# - Matrices de correlación
-# - Análisis factorial exploratorio
-# - Clustering para identificar grupos
-# - Análisis de correspondencias
+# Variable interactions:
+# - Correlation matrices
+# - Exploratory factor analysis
+# - Clustering to identify groups
+# - Correspondence analysis
 ```
 
-### **Calidad de Datos - Criterios**
+### **Data Quality - Criteria**
 
-| Dimensión | Criterio | Acción |
+| Dimension | Criterion | Action |
 |-----------|----------|---------|
-| **Completitud** | <5% missing → OK<br>5-20% → Imputar<br>>20% → Evaluar eliminación | Age: 19.9% → Imputar<br>Cabin: 77.1% → Eliminar |
-| **Consistencia** | Valores en rangos esperados | Age: [0-80] ✓<br>Fare: [0-512] ✓ |
-| **Precisión** | Coherencia con fuentes históricas | Validar con Encyclopedia Titanica |
-| **Relevancia** | Correlación con variable objetivo | Mantener \|corr\| > 0.05 |
+| **Completeness** | <5% missing → OK<br>5-20% → Impute<br>>20% → Evaluate removal | Age: 19.9% → Impute<br>Cabin: 77.1% → Remove |
+| **Consistency** | Values in expected ranges | Age: [0-80] ✓<br>Fare: [0-512] ✓ |
+| **Accuracy** | Consistency with historical sources | Validate with Encyclopedia Titanica |
+| **Relevance** | Correlation with target variable | Keep \|corr\| > 0.05 |
 
 ---
 
 ## 🛠️ 3. Data Preparation
 
-### **3.1 Estrategia de Limpieza**
+### **3.1 Cleaning Strategy**
 
-#### **Valores Faltantes**
+#### **Missing Values**
 ```python
 # Age (19.9% missing):
 strategies = {
@@ -78,24 +78,24 @@ strategies = {
     'group_median': df.groupby(['Sex', 'Pclass'])['Age'].transform('median'),
     'predictive': RandomForestRegressor(features=['Pclass', 'Sex', 'SibSp', 'Parch', 'Fare'])
 }
-# Selección: Comparar distribuciones resultantes
+# Selection: Compare resulting distributions
 ```
 
 #### **Outliers**
 ```python
-# Criterio: IQR method
+# Criterion: IQR method
 def detect_outliers(column):
     Q1 = column.quantile(0.25)
     Q3 = column.quantile(0.75)
     IQR = Q3 - Q1
     return (column < Q1 - 1.5*IQR) | (column > Q3 + 1.5*IQR)
 
-# Acción: Investigar, no eliminar automáticamente
+# Action: Investigate, don't automatically remove
 ```
 
 ### **3.2 Feature Engineering Strategy**
 
-#### **Variables Derivadas**
+#### **Derived Variables**
 ```python
 features_new = {
     'FamilySize': lambda df: df['SibSp'] + df['Parch'] + 1,
@@ -107,37 +107,37 @@ features_new = {
 }
 ```
 
-#### **Justificación Teórica**
-- **FamilySize**: Hipótesis de protección familiar vs sobrecarga
-- **Title**: Indicador de estatus social más granular que Pclass
-- **AgeGroup**: Política "niños primero" en grupos etarios
-- **FareBin**: Proxy de riqueza independiente de clase
+#### **Theoretical Justification**
+- **FamilySize**: Hypothesis of family protection vs overload
+- **Title**: More granular social status indicator than Pclass
+- **AgeGroup**: "Children first" policy in age groups
+- **FareBin**: Wealth proxy independent of class
 
 ### **3.3 Encoding Strategy**
 
-#### **Variables Categóricas**
+#### **Categorical Variables**
 ```python
 encoding_strategy = {
-    'Sex': 'LabelEncoder',  # Binaria: male=0, female=1
+    'Sex': 'LabelEncoder',  # Binary: male=0, female=1
     'Embarked': 'OneHotEncoder',  # Nominal: C, Q, S
-    'Title': 'TargetEncoder',  # Alta cardinalidad
-    'AgeGroup': 'OrdinalEncoder',  # Ordinal natural
-    'Pclass': 'keep_numeric'  # Ya ordinal
+    'Title': 'TargetEncoder',  # High cardinality
+    'AgeGroup': 'OrdinalEncoder',  # Natural ordinal
+    'Pclass': 'keep_numeric'  # Already ordinal
 }
 ```
 
 ### **3.4 Feature Selection**
 
-#### **Criterios de Selección**
-1. **Correlación**: |correlation| > 0.05 con target
-2. **Varianza**: Variance threshold > 0.01
-3. **Multicolinealidad**: VIF < 5.0
-4. **Domain knowledge**: Relevancia histórica/teórica
+#### **Selection Criteria**
+1. **Correlation**: |correlation| > 0.05 with target
+2. **Variance**: Variance threshold > 0.01
+3. **Multicollinearity**: VIF < 5.0
+4. **Domain knowledge**: Historical/theoretical relevance
 
-#### **Métodos a Comparar**
+#### **Methods to Compare**
 ```python
 selection_methods = [
-    'SelectKBest(chi2)',  # Univariado
+    'SelectKBest(chi2)',  # Univariate
     'RFE(LogisticRegression)',  # Wrapper
     'SelectFromModel(RandomForest)',  # Embedded
     'manual_domain_knowledge'  # Expert
@@ -148,27 +148,27 @@ selection_methods = [
 
 ## 🤖 4. Modeling Strategy
 
-### **4.1 Algoritmos Seleccionados**
+### **4.1 Selected Algorithms**
 
-#### **Justificación por Algoritmo**
+#### **Algorithm Justification**
 
-| Algoritmo | Justificación | Fortalezas Esperadas | Debilidades |
+| Algorithm | Justification | Expected Strengths | Weaknesses |
 |-----------|---------------|---------------------|-------------|
-| **Logistic Regression** | Baseline interpretable, asunciones lineales | Coeficientes interpretables, probabilidades calibradas | Asume linealidad |
-| **Random Forest** | Maneja interacciones, robusto | Feature importance, maneja outliers | Menos interpretable |
-| **SVM** | Boundaries complejas, kernels | Efectivo en alta dimensión | Hiperparámetros sensibles |
-| **Naive Bayes** | Baseline probabilístico | Rápido, maneja missing values | Asume independencia |
+| **Logistic Regression** | Interpretable baseline, linear assumptions | Interpretable coefficients, calibrated probabilities | Assumes linearity |
+| **Random Forest** | Handles interactions, robust | Feature importance, handles outliers | Less interpretable |
+| **SVM** | Complex boundaries, kernels | Effective in high dimensions | Sensitive hyperparameters |
+| **Naive Bayes** | Probabilistic baseline | Fast, handles missing values | Assumes independence |
 
 ### **4.2 Validation Strategy**
 
 #### **Data Splitting**
 ```python
-# Estratificado para mantener proporción de supervivencia
+# Stratified to maintain survival proportion
 train_size = 0.70  # 623 samples
 val_size = 0.15    # 134 samples  
 test_size = 0.15   # 134 samples
 
-# Stratified para balance de clases
+# Stratified for class balance
 stratify_on = ['Survived', 'Sex', 'Pclass']
 ```
 
@@ -179,7 +179,7 @@ cv_strategy = StratifiedKFold(
     shuffle=True,
     random_state=42
 )
-# Para model selection y hyperparameter tuning
+# For model selection and hyperparameter tuning
 ```
 
 ### **4.3 Hyperparameter Optimization**
@@ -210,27 +210,27 @@ param_grids = {
 
 ## 📏 5. Evaluation Methodology
 
-### **5.1 Métricas de Performance**
+### **5.1 Performance Metrics**
 
-#### **Métricas Primarias**
+#### **Primary Metrics**
 ```python
 primary_metrics = {
-    'accuracy': 'Proporción correcta total',
-    'f1_score': 'Balance precision-recall',
-    'roc_auc': 'Capacidad discriminativa',
-    'classification_report': 'Detalle por clase'
+    'accuracy': 'Total correct proportion',
+    'f1_score': 'Precision-recall balance',
+    'roc_auc': 'Discriminative capability',
+    'classification_report': 'Class detail'
 }
 ```
 
-#### **Métricas por Contexto**
-- **Académico**: Accuracy (simplicidad interpretativa)
-- **Médico/Seguridad**: Recall (evitar falsos negativos)
-- **Histórico**: Precision (confianza en predicciones positivas)
-- **Científico**: AUC-ROC (threshold-independent)
+#### **Context-Specific Metrics**
+- **Academic**: Accuracy (interpretive simplicity)
+- **Medical/Safety**: Recall (avoid false negatives)
+- **Historical**: Precision (confidence in positive predictions)
+- **Scientific**: AUC-ROC (threshold-independent)
 
 ### **5.2 Model Comparison Framework**
 
-#### **Criterios de Comparación**
+#### **Comparison Criteria**
 ```python
 comparison_criteria = {
     'performance': ['accuracy', 'f1', 'auc'],
@@ -243,7 +243,7 @@ comparison_criteria = {
 
 ### **5.3 Error Analysis**
 
-#### **Análisis de Casos Mal Clasificados**
+#### **Misclassified Case Analysis**
 ```python
 def analyze_errors(y_true, y_pred, X):
     errors = X[y_true != y_pred]
@@ -260,17 +260,17 @@ def analyze_errors(y_true, y_pred, X):
 
 ### **6.1 Storytelling Framework**
 
-#### **Narrativa Estructurada**
-1. **Context Setting**: "Era el 14 de abril de 1912..."
-2. **Data Introduction**: "891 historias humanas en números..."
-3. **Pattern Discovery**: "Los datos revelan que..."
-4. **Model Insights**: "Nuestros algoritmos descubrieron..."
-5. **Historical Validation**: "Esto confirma que..."
-6. **Modern Implications**: "Hoy esto significa..."
+#### **Structured Narrative**
+1. **Context Setting**: "It was April 14, 1912..."
+2. **Data Introduction**: "891 human stories in numbers..."
+3. **Pattern Discovery**: "The data reveals that..."
+4. **Model Insights**: "Our algorithms discovered..."
+5. **Historical Validation**: "This confirms that..."
+6. **Modern Implications**: "Today this means..."
 
 ### **6.2 Visualization Strategy**
 
-#### **Por Fase del Proyecto**
+#### **By Project Phase**
 ```python
 viz_by_phase = {
     'EDA': ['distributions', 'correlations', 'crosstabs'],
@@ -281,11 +281,11 @@ viz_by_phase = {
 }
 ```
 
-#### **Principios de Diseño**
-- **Clarity**: Mensaje claro en 5 segundos
+#### **Design Principles**
+- **Clarity**: Clear message in 5 seconds
 - **Honesty**: No misleading scales/colors
 - **Accessibility**: Colorblind-friendly palettes
-- **Narrative**: Cada gráfico cuenta parte de la historia
+- **Narrative**: Each chart tells part of the story
 
 ---
 
@@ -338,31 +338,31 @@ def function_template(param):
 ```
 
 ### **8.2 Decision Documentation**
-- **Rationale**: Por qué se tomó cada decisión técnica
-- **Alternatives**: Qué otras opciones se consideraron
-- **Trade-offs**: Ventajas/desventajas de la elección
-- **Results**: Impacto medible de la decisión
+- **Rationale**: Why each technical decision was made
+- **Alternatives**: Other options considered
+- **Trade-offs**: Advantages/disadvantages of the choice
+- **Results**: Measurable impact of the decision
 
 ---
 
 ## ✅ 9. Quality Assurance
 
 ### **9.1 Reproducibility Checklist**
-- [ ] Random seeds fijos en todo el pipeline
-- [ ] Versiones de librerías especificadas
-- [ ] Datos originales preservados e inmutables
-- [ ] Pipeline documentado paso a paso
-- [ ] Resultados validables independientemente
+- [ ] Fixed random seeds throughout pipeline
+- [ ] Library versions specified
+- [ ] Original data preserved and immutable
+- [ ] Pipeline documented step-by-step
+- [ ] Independently verifiable results
 
 ### **9.2 Validation Protocol**
-- [ ] Cross-validation en model selection
-- [ ] Hold-out test set nunca visto hasta el final
-- [ ] Métricas reportadas con intervalos de confianza
-- [ ] Assumptions de modelos verificadas
-- [ ] Resultados consistentes con domain knowledge
+- [ ] Cross-validation in model selection
+- [ ] Hold-out test set never seen until final
+- [ ] Metrics reported with confidence intervals
+- [ ] Model assumptions verified
+- [ ] Results consistent with domain knowledge
 
 ---
 
-*Metodología aprobada: 26 Mayo 2025*  
-*Versión: 1.0*  
-*Próxima revisión: Al completar cada fase*
+*Methodology approved: May 26, 2025*  
+*Version: 1.0*  
+*Next review: Upon completing each phase*
