@@ -1,225 +1,225 @@
 # 🚢 Titanic Survival Prediction
 
-## 📖 Descripción del Proyecto
+## 📖 Project Description
 
-Este proyecto utiliza técnicas de Machine Learning para predecir la supervivencia de los pasajeros del RMS Titanic basándose en características demográficas y socioeconómicas. Desarrollado como proyecto académico para la materia COM 139 - Simulación & Visualización de la Universidad Panamericana.
+This project uses Machine Learning techniques to predict RMS Titanic passenger survival based on demographic and socioeconomic characteristics. Developed as an academic project for the course COM 139 - Simulation & Visualization at Universidad Panamericana.
 
-### 🎯 Objetivos
-- Analizar los factores que influyeron en la supervivencia del Titanic
-- Implementar y comparar diferentes algoritmos de clasificación
-- Crear visualizaciones que cuenten la historia de los datos
-- Descubrir patrones ocultos en los datos históricos
-- Validar cuantitativamente el protocolo "mujeres y niños primero"
+### 🎯 Objectives
+- Analyze factors influencing Titanic survival
+- Implement and compare different classification algorithms
+- Create visualizations that tell the data story
+- Discover hidden patterns in historical data
+- Quantitatively validate the "women and children first" protocol
 
-## 🏆 Resultados Principales
+## 🏆 Key Results
 
-- **🎯 Objetivo Académico**: ✅ **ALCANZADO** - Accuracy superior al 80% requerido
-- **🤖 Mejor Modelo**: Support Vector Machine (SVM) con kernel RBF
-- **📊 Performance Final**: **84.4% accuracy** en test set
-- **🔍 Métricas Balanceadas**: F1-Score: 0.78, Precision: 0.85, Recall: 0.72, AUC-ROC: 0.86
-- **🧪 Validación Demostrada**: 87.0% accuracy en datos de validación final
+- **🎯 Academic Goal**: ✅ **ACHIEVED** - Accuracy exceeding the required 80%
+- **🤖 Best Model**: Support Vector Machine (SVM) with RBF kernel
+- **📊 Final Performance**: **84.4% accuracy** on test set
+- **🔍 Balanced Metrics**: F1-Score: 0.78, Precision: 0.85, Recall: 0.72, AUC-ROC: 0.86
+- **🧪 Demonstrated Validation**: 87.0% accuracy on final validation data
 
-### 📈 Comparación de Algoritmos
+### 📈 Algorithm Comparison
 
-| Modelo | Accuracy | F1-Score | AUC-ROC | Interpretabilidad |
+| Model | Accuracy | F1-Score | AUC-ROC | Interpretability |
 |--------|----------|----------|---------|-------------------|
-| **SVM (Ganador)** | **84.4%** | **0.781** | **0.859** | Media |
-| Logistic Regression | 84.3% | 0.781 | **0.910** | **Alta** |
-| Random Forest | 83.2% | 0.783 | 0.879 | Media |
-| Naive Bayes | 82.0% | 0.750 | 0.876 | Media |
+| **SVM (Winner)** | **84.4%** | **0.781** | **0.859** | Medium |
+| Logistic Regression | 84.3% | 0.781 | **0.910** | **High** |
+| Random Forest | 83.2% | 0.783 | 0.879 | Medium |
+| Naive Bayes | 82.0% | 0.750 | 0.876 | Medium |
 
-## 📊 Dataset y Características
+## 📊 Dataset and Features
 
-- **Fuente**: [Kaggle - Titanic Dataset](https://www.kaggle.com/datasets/yasserh/titanic-dataset)
-- **Dimensiones**: 891 pasajeros × 12 características originales → **29 features engineeradas**
-- **Variable objetivo**: Survived (38.4% tasa histórica de supervivencia)
-- **Calidad**: Procesamiento completo de valores faltantes y feature engineering avanzado
+- **Source**: [Kaggle - Titanic Dataset](https://www.kaggle.com/datasets/yasserh/titanic-dataset)
+- **Dimensions**: 891 passengers × 12 original features → **29 engineered features**
+- **Target variable**: Survived (38.4% historical survival rate)
+- **Quality**: Complete missing value processing and advanced feature engineering
 
-### 🔍 Top Features Más Predictivas
-1. **AgeSex_Adult_Female** (r=0.486): Mujeres adultas
-2. **SexPclass_female_Class1** (r=0.413): Mujeres de primera clase  
-3. **Title_Mrs** (r=0.342): Estado social femenino
+### 🔍 Top Most Predictive Features
+1. **AgeSex_Adult_Female** (r=0.486): Adult women
+2. **SexPclass_female_Class1** (r=0.413): First-class women  
+3. **Title_Mrs** (r=0.342): Female social status
 
-## 🏛️ Insights Históricos Validados
+## 🏛️ Validated Historical Insights
 
-- **✅ Protocolo "Mujeres y Niños Primero"**: Mujeres 74.2% vs Hombres 18.9% supervivencia (ratio 4:1)
-- **✅ Clase Social Determinante**: 1ª clase (63%) > 2ª clase (47%) > 3ª clase (24%)
-- **✅ Intersección Crítica**: Mujeres 1ª clase 96.8% vs Hombres 3ª clase 13.5%
-- **✅ Validación Cuantitativa**: Los datos confirman las narrativas históricas del desastre
+- **✅ "Women and Children First" Protocol**: Women 74.2% vs Men 18.9% survival (4:1 ratio)
+- **✅ Social Class Determinant**: 1st class (63%) > 2nd class (47%) > 3rd class (24%)
+- **✅ Critical Intersection**: 1st class women 96.8% vs 3rd class men 13.5%
+- **✅ Quantitative Validation**: Data confirms historical disaster narratives
 
-## 📁 Estructura del Proyecto
+## 📁 Project Structure
 
 ```
 SG1_Team3_ML/
-├── 📋 DOCUMENTACIÓN
+├── 📋 DOCUMENTATION
 │   ├── docs/
-│   │   ├── project_proposal.md          # Propuesta inicial del proyecto
-│   │   ├── methodology.md               # Metodología CRISP-DM detallada
-│   │   ├── data_dictionary.md           # Diccionario completo de datos
-│   │   ├── development_log.md           # ⭐ Log detallado del desarrollo
-│   │   └── final_technical_report.md    # ⭐ Reporte técnico completo
+│   │   ├── project_proposal.md          # Initial project proposal
+│   │   ├── methodology.md               # Detailed CRISP-DM methodology
+│   │   ├── data_dictionary.md           # Complete data dictionary
+│   │   ├── development_log.md           # ⭐ Detailed development log
+│   │   └── final_technical_report.md    # ⭐ Complete technical report
 │
-├── 📓 NOTEBOOKS (Pipeline ML Completo)
+├── 📓 NOTEBOOKS (Complete ML Pipeline)
 │   ├── notebooks/
-│   │   ├── 01_exploratory_data_analysis.ipynb    # EDA completo
-│   │   ├── 02_data_cleaning.ipynb               # Limpieza de datos
-│   │   ├── 03_feature_engineering.ipynb        # Ingeniería de características
-│   │   ├── 04_modeling.ipynb                   # ⭐ Entrenamiento de modelos
-│   │   ├── 05_model_evaluation.ipynb           # Evaluación y análisis
-│   │   └── 06_final_predictions.ipynb          # ⭐ Predicciones finales
+│   │   ├── 01_exploratory_data_analysis.ipynb    # Complete EDA
+│   │   ├── 02_data_cleaning.ipynb               # Data cleaning
+│   │   ├── 03_feature_engineering.ipynb        # Feature engineering
+│   │   ├── 04_modeling.ipynb                   # ⭐ Model training
+│   │   ├── 05_model_evaluation.ipynb           # Evaluation and analysis
+│   │   └── 06_final_predictions.ipynb          # ⭐ Final predictions
 │
-├── 📊 DATOS
+├── 📊 DATA
 │   ├── data/
-│   │   ├── raw/titanic.csv              # Dataset original de Kaggle
-│   │   └── processed/                   # Datos procesados y features
+│   │   ├── raw/titanic.csv              # Original Kaggle dataset
+│   │   └── processed/                   # Processed data and features
 │
-├── 🤖 MODELOS
+├── 🤖 MODELS
 │   ├── models/
-│   │   ├── best_model_svm.pkl          # ⭐ Modelo SVM final entrenado
-│   │   └── model_metrics.json          # Métricas y parámetros del modelo
+│   │   ├── best_model_svm.pkl          # ⭐ Final trained SVM model
+│   │   └── model_metrics.json          # Model metrics and parameters
 │
-├── 📈 RESULTADOS
+├── 📈 RESULTS
 │   ├── results/
-│   │   ├── figures/                    # Todas las visualizaciones generadas
-│   │   └── reports/                    # Reportes HTML automáticos
+│   │   ├── figures/                    # All generated visualizations
+│   │   └── reports/                    # Automatic HTML reports
 │
-├── 🔧 CÓDIGO FUENTE
+├── 🔧 SOURCE CODE
 │   ├── src/
-│   │   └── utils/helpers.py            # Funciones utilitarias
+│   │   └── utils/helpers.py            # Utility functions
 │
-└── 📋 CONFIGURACIÓN
-    ├── requirements.txt                 # Dependencias Python
-    ├── environment.yml                  # Entorno Conda
-    └── setup.py                        # Configuración del paquete
+└── 📋 CONFIGURATION
+    ├── requirements.txt                 # Python dependencies
+    ├── environment.yml                  # Conda environment
+    └── setup.py                        # Package configuration
 ```
 
-## 🔑 Archivos Clave para Revisar
+## 🔑 Key Files to Review
 
-### 📋 **Documentación Principal**
-- **`docs/final_technical_report.md`** - Reporte técnico completo con todos los resultados
-- **`docs/development_log.md`** - Registro detallado del proceso de desarrollo
-- **`docs/methodology.md`** - Metodología CRISP-DM implementada
+### 📋 **Main Documentation**
+- **`docs/final_technical_report.md`** - Complete technical report with all results
+- **`docs/development_log.md`** - Detailed development process log
+- **`docs/methodology.md`** - Implemented CRISP-DM methodology
 
-### 🧪 **Notebooks Ejecutables**
-- **`notebooks/04_modeling.ipynb`** - Entrenamiento y comparación de modelos
-- **`notebooks/06_final_predictions.ipynb`** - Demostración de predicciones finales
-- **`notebooks/01_exploratory_data_analysis.ipynb`** - Análisis exploratorio completo
+### 🧪 **Executable Notebooks**
+- **`notebooks/04_modeling.ipynb`** - Model training and comparison
+- **`notebooks/06_final_predictions.ipynb`** - Final predictions demonstration
+- **`notebooks/01_exploratory_data_analysis.ipynb`** - Complete exploratory analysis
 
-### 🤖 **Modelo Productivo**
-- **`models/best_model_svm.pkl`** - Modelo SVM entrenado listo para usar
-- **`models/model_metrics.json`** - Métricas completas de performance
+### 🤖 **Production Model**
+- **`models/best_model_svm.pkl`** - Trained SVM model ready for use
+- **`models/model_metrics.json`** - Complete performance metrics
 
-## 🛠️ Instalación y Ejecución
+## 🛠️ Installation and Execution
 
-### Opción 1: Conda (Recomendado)
+### Option 1: Conda (Recommended)
 ```bash
-# Clonar repositorio
+# Clone repository
 git clone https://github.com/YahwthaniMG/SG1_Team3_ML.git
 cd SG1_Team3_ML
 
-# Crear entorno
+# Create environment
 conda env create -f environment.yml
 conda activate SG1_Team3_ML
 
-# Ejecutar notebooks
+# Run notebooks
 jupyter notebook notebooks/
 ```
 
-### Opción 2: pip + venv
+### Option 2: pip + venv
 ```bash
-# Clonar repositorio
+# Clone repository
 git clone https://github.com/YahwthaniMG/SG1_Team3_ML.git
 cd SG1_Team3_ML
 
-# Crear entorno virtual
+# Create virtual environment
 python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
 
-# Instalar dependencias
+# Install dependencies
 pip install -r requirements.txt
 
-# Ejecutar notebooks
+# Run notebooks
 jupyter notebook notebooks/
 ```
 
-### 🚀 Ejecución Rápida
+### 🚀 Quick Start
 
-Para ver los resultados inmediatamente:
+To see results immediately:
 
-1. **Ver Resultados**: Abrir `docs/final_technical_report.md`
-2. **Ejecutar Predicciones**: Notebook `06_final_predictions.ipynb`
-3. **Pipeline Completo**: Ejecutar notebooks 01-06 en orden
+1. **View Results**: Open `docs/final_technical_report.md`
+2. **Run Predictions**: Notebook `06_final_predictions.ipynb`
+3. **Complete Pipeline**: Run notebooks 01-06 in order
 
-## 📊 Demostración de Predicciones
+## 📊 Prediction Demonstration
 
-El modelo final puede predecir supervivencia en nuevos datos:
+The final model can predict survival on new data:
 
 ```python
-# Ejemplo de uso del modelo entrenado
+# Example usage of trained model
 import joblib
 model = joblib.load('models/best_model_svm.pkl')
 
-# El modelo logró en demostración:
-# - 87.0% accuracy en 100 pasajeros de prueba
-# - 35% predichos como supervivientes (vs 38.4% histórico)
-# - 78% predicciones de alta confianza
+# Model achieved in demonstration:
+# - 87.0% accuracy on 100 test passengers
+# - 35% predicted as survivors (vs 38.4% historical)
+# - 78% high-confidence predictions
 ```
 
-## 🎓 Valor Académico Demostrado
+## 🎓 Demonstrated Academic Value
 
-### ✅ **Objetivos Técnicos Cumplidos**
-- **Pipeline ML Completo**: CRISP-DM implementado de principio a fin
-- **Comparación Algorítmica**: 4 algoritmos evaluados sistemáticamente
-- **Performance Superior**: 84.4% accuracy (objetivo >80% ✅)
-- **Validación Rigurosa**: Cross-validation, test set holdout, métricas balanceadas
+### ✅ **Achieved Technical Objectives**
+- **Complete ML Pipeline**: CRISP-DM implemented end-to-end
+- **Algorithm Comparison**: 4 algorithms systematically evaluated
+- **Superior Performance**: 84.4% accuracy (target >80% ✅)
+- **Rigorous Validation**: Cross-validation, test set holdout, balanced metrics
 
-### 🏛️ **Contribución Histórica**
-- **Validación Cuantitativa**: Protocolo "mujeres y niños primero" confirmado estadísticamente
-- **Interseccionalidad**: Género + Clase social como factor determinante crítico  
-- **Casos Excepcionales**: Análisis de errores revela historias humanas extraordinarias
-- **Lecciones Modernas**: Insights aplicables a protocolos de emergencia actuales
+### 🏛️ **Historical Contribution**
+- **Quantitative Validation**: "Women and children first" protocol statistically confirmed
+- **Intersectionality**: Gender + Social class as critical determining factor  
+- **Exceptional Cases**: Error analysis reveals extraordinary human stories
+- **Modern Lessons**: Insights applicable to current emergency protocols
 
-### 🔬 **Rigor Metodológico**
-- **Reproducibilidad**: Todo el código y pipeline documentado
-- **Transparencia**: Development log con todos los challenges y decisiones
-- **Validación**: Resultados consistentes y estadísticamente significativos
+### 🔬 **Methodological Rigor**
+- **Reproducibility**: All code and pipeline documented
+- **Transparency**: Development log with all challenges and decisions
+- **Validation**: Consistent and statistically significant results
 
-## 👨‍🎓 Equipo de Desarrollo
+## 👨‍🎓 Development Team
 
-**SG1_Team3_ML** - Universidad Panamericana, Primavera 2025
+**SG1_Team3_ML** - Universidad Panamericana, Spring 2025
 
-- **Andrés López Álvarez** - Feature Engineering & Modelado
-- **Héctor Manuel Eguiarte Carlos** - Visualización & Storytelling  
+- **Andrés López Álvarez** - Feature Engineering & Modeling
+- **Héctor Manuel Eguiarte Carlos** - Visualization & Storytelling  
 - **Yahwthani Morales Gómez** - Project Lead & Data Pipeline
 - **Omar Vidaña Rodríguez** - Model Evaluation & Performance Analysis
 
 **Instructor**: Gabriel Castillo Cortés  
-**Materia**: COM 139 - Simulación & Visualización
+**Course**: COM 139 - Simulation & Visualization
 
-## 📚 Referencias y Fuentes
+## 📚 References and Sources
 
-### **Datos Históricos**
+### **Historical Data**
 - [Kaggle Titanic Dataset](https://www.kaggle.com/datasets/yasserh/titanic-dataset)
-- Encyclopedia Titanica (validación histórica)
+- Encyclopedia Titanica (historical validation)
 - British Board of Trade Report (1912)
 
-### **Metodología Técnica**
+### **Technical Methodology**
 - James, G. et al. "An Introduction to Statistical Learning"
-- Castillo, G. "ML-Practical.pdf" (documento base del curso)
-- Documentación scikit-learn
+- Castillo, G. "ML-Practical.pdf" (course base document)
+- Scikit-learn documentation
 
-### **Contexto Histórico**
+### **Historical Context**
 - Lord, Walter. "A Night to Remember" (1955)
-- Investigación oficial británica del desastre (1912)
+- Official British disaster investigation (1912)
 
 ---
 
-## 🎯 Conclusión
+## 🎯 Conclusion
 
-Este proyecto demuestra exitosamente la aplicación de Machine Learning para validar narrativas históricas, alcanzando no solo los objetivos técnicos académicos sino también generando insights valiosos sobre uno de los eventos más estudiados de la historia marítima.
+This project successfully demonstrates the application of Machine Learning to validate historical narratives, achieving not only academic technical objectives but also generating valuable insights about one of the most studied events in maritime history.
 
-**El modelo SVM final no solo predice supervivencia con 84.4% de precisión, sino que revela cuantitativamente cómo la estructura social de 1912 determinó literalmente la vida y la muerte en el Titanic.**
+**The final SVM model not only predicts survival with 84.4% accuracy but also quantitatively reveals how 1912 social structure literally determined life and death on the Titanic.**
 
 ---
 
-*¿Quieres explorar más? Comienza con `docs/final_technical_report.md` para el análisis completo o ejecuta `notebooks/06_final_predictions.ipynb` para ver el modelo en acción.*
+*Want to explore more? Start with `docs/final_technical_report.md` for the complete analysis or run `notebooks/06_final_predictions.ipynb` to see the model in action.*
